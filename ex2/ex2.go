@@ -14,8 +14,8 @@ func contarCrescente(wg *sync.WaitGroup) {
 	}
 }
 
-func contarDecrescente(wg *sync.WaitGroup) {//contador de sincronização
-	defer wg.Done()// decrementa ao final
+func contarDecrescente(wg *sync.WaitGroup) { //contador de sincronização
+	defer wg.Done() // decrementa ao final
 	for i := 10; i >= 1; i-- {
 		fmt.Printf("Decrescente: %d\n", i)
 		time.Sleep(1 * time.Second)

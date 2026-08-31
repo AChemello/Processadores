@@ -55,3 +55,11 @@ func main() {
 // O -race não ajuda porque o código está perfeitamente sincronizado em termos 
 // de acesso à memória (os mutexes evitam o acesso simultâneo), sendo um problema 
 // estritamente de ordem de bloqueio.
+
+// 4:A correção mais comum desse deadlock — que consiste em ordenar a aquisição dos mutexes — 
+// elimina a condição de espera circular.
+// Ao garantir que todas as goroutines adquiram os 
+// bloqueios sempre na mesma ordem (por exemplo, 
+// 	primeiro o mutexA e depois o mutexB), 
+// o ciclo fechado de dependências deixa de existir, 
+//  que o programa trave infinitamente.
